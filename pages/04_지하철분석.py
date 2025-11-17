@@ -174,25 +174,3 @@ with st.expander('원본 데이터 미리보기'):
 
 st.caption('앱: Streamlit + Plotly로 제작 — 상단의 파일 업로드 또는 repo의 subway.csv 사용')
 
-
-# -----------------------------------------------------------------
-# Deployment instructions (도움말)
-# 1. GitHub에 이 디렉토리를 업로드하고 app.py와 requirements.txt를 포함하세요.
-# 2. Streamlit Cloud에 GitHub 리포지토리를 연결하면 자동으로 배포됩니다.
-# -----------------------------------------------------------------
-
-
-# requirements.txt content (아래 파일로 저장하세요)
-
-"""
-# requirements.txt
-streamlit
-pandas
-plotly
-numpy
-
-# (선택) 특정 버전 고정 예:
-# streamlit==1.25.0
-# pandas==2.2.2
-# plotly==5.15.0
-"""
