@@ -50,7 +50,7 @@ def parse_dates(df, col):
 
 
 # --- Load data ------------------------------------------------
-st.markdown('**데이터 업로드**: CSV 파일을 업로드하거나 상위 폴더에 `subway.csv` 파일을 두세요.')('**데이터 업로드**: CSV 파일을 업로드하거나 repo 루트에 `subway.csv` 파일을 두세요.')
+st.markdown('**데이터 업로드**: CSV 파일을 업로드하거나 상위 폴더에 `subway.csv` 파일을 두세요.')
 uploaded = st.file_uploader('CSV 파일 업로드', type=['csv'])
 
 if uploaded is not None:
