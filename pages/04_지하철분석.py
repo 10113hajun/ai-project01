@@ -50,7 +50,7 @@ def parse_dates(df, col):
 
 
 # --- Load data ------------------------------------------------
-st.markdown('**데이터 업로드**: CSV 파일을 업로드하거나 repo 루트에 `subway.csv` 파일을 두세요.')
+st.markdown('**데이터 업로드**: CSV 파일을 업로드하거나 상위 폴더에 `subway.csv` 파일을 두세요.')('**데이터 업로드**: CSV 파일을 업로드하거나 repo 루트에 `subway.csv` 파일을 두세요.')
 uploaded = st.file_uploader('CSV 파일 업로드', type=['csv'])
 
 if uploaded is not None:
@@ -65,14 +65,14 @@ if uploaded is not None:
 else:
     # fallback: try to read subway.csv from working dir (useful for Streamlit Cloud repo)
     try:
-        df = pd.read_csv('subway.csv', encoding='cp949')
+        df = pd.read_csv('../subway.csv', encoding='cp949')
         st.info('로컬 파일 `subway.csv`에서 로드했습니다.')
     except FileNotFoundError:
         st.warning('업로드된 파일이 없습니다. 먼저 CSV를 업로드하거나 repo에 `subway.csv`를 추가해주세요.')
         st.stop()
     except Exception:
         try:
-            df = pd.read_csv('subway.csv', encoding='utf-8')
+            df = pd.read_csv('../subway.csv', encoding='utf-8')
             st.info('로컬 파일 `subway.csv`에서 로드했습니다 (utf-8).')
         except Exception:
             st.error('로컬 파일을 읽는 중 오류가 발생했습니다.')
@@ -182,4 +182,17 @@ st.caption('앱: Streamlit + Plotly로 제작 — 상단의 파일 업로드 또
 # -----------------------------------------------------------------
 
 
+# requirements.txt content (아래 파일로 저장하세요)
 
+"""
+# requirements.txt
+streamlit
+pandas
+plotly
+numpy
+
+# (선택) 특정 버전 고정 예:
+# streamlit==1.25.0
+# pandas==2.2.2
+# plotly==5.15.0
+"""
