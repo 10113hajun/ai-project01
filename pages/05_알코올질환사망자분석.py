@@ -11,14 +11,19 @@ if uploaded is None:
 
 # CSV 로드
 encodings = ["utf-8", "cp949", "euc-kr", "latin1"]
+df = None
+
 for enc in encodings:
     try:
         df = pd.read_csv(uploaded, encoding=enc)
         break
-    except:
-        pass
-else:
-    df = pd.read_csv(uploaded, encoding="utf-8", errors="replace")
+    except Exception:
+        uploaded.seek(0)  # 업로드 파일은 읽고 나면 포인터를 처음으로 되돌려야 함
+
+# 그래도 안되면 utf-8로 불러보기
+if df is None:
+    uploaded.seek(0)
+    df = pd.read_csv(uploaded, encoding="utf-8")
 
 st.subheader("원본 데이터")
 st.dataframe(df.head())
